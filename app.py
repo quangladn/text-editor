@@ -11,9 +11,11 @@ def readJSON():
 
 try:
     data = readJSON()
-    if len(sys.argv) == 0:
+    print(sys.argv)
+    input()
+    if len(sys.argv) == 1:
         inFile = "Untitled"
-    elif len(sys.argv) > 0:
+    elif len(sys.argv) > 1:
         inFile = sys.argv[-1]
     root = Tk()
     root.title(inFile)
@@ -133,6 +135,8 @@ try:
         fileContent = ftxt.read()
         text.insert(END,fileContent)
         ftxt.close()
+    else:
+        pass
 
     statusBar = Label(root,text=f"Untitled",anchor=E)
     statusBar.pack(fill=X,side=LEFT,ipady=30.0)
@@ -153,8 +157,12 @@ try:
 
     print(sys.argv[1])
     root.mainloop()
+except IndexError:
+    inFile = "Untitled"
+    root.mainloop()
 except Exception as bug:
     print(bug)
+    input()
 finally:
     print("exited")
     sys.exit()
