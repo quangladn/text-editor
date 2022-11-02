@@ -12,7 +12,6 @@ def readJSON():
 try:
     data = readJSON()
     print(sys.argv)
-    input()
     if len(sys.argv) == 1:
         inFile = "Untitled"
     elif len(sys.argv) > 1:
